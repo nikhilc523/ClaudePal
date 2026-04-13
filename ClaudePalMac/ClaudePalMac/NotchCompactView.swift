@@ -1,0 +1,111 @@
+import SwiftUI
+import ClaudePalMacCore
+
+/// Compact notch icon: terminal mascot with pending badge.
+/// Continuously dances while pending decisions exist — stops when all resolved.
+struct NotchCompactView: View {
+    @ObservedObject var appState: AppState
+
+    @State private var wiggleAngle: Double = 0
+    @State private var bounceScale: CGFloat = 1.0
+    @State private var glowOpacity: Double = 0
+    @State private var isDancing = false
+
+    var body: some View {
+        ZStack(alignment: .topTrailing) {
+            ZStack {
+                // Pulsing glow ring while pending
+                if glowOpacity > 0 {
+                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                        .fill(Color.cpAccent.opacity(glowOpacity * 0.3))
+                        .frame(width: 28, height: 28)
+                        .blur(radius: 4)
+                }
+
+                TerminalMascot(size: 24, animated: true)
+            }
+            .rotationEffect(.degrees(wiggleAngle))
+            .scaleEffect(bounceScale)
+
+            // Pending badge
+            if appState.pendingCount > 0 {
+                ZStack {
+                    Circle()
+                        .fill(Color.cpDeny)
+                        .frame(width: 12, height: 12)
+                    Text("\(min(appState.pendingCount, 99))")
+                        .font(.system(size: 7, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                }
+                .offset(x: 4, y: -2)
+                .transition(.scale.combined(with: .opacity))
+            }
+        }
+        .frame(width: 32, height: 28)
+        .contentShape(Rectangle())
+        .onChange(of: appState.pendingCount) { oldVal, newVal in
+            if newVal > 0 && !isDancing {
+                startDanceLoop()
+            } else if newVal == 0 {
+                stopDance()
+            }
+        }
+        .onChange(of: appState.danceTrigger) {
+            // Kick off dance immediately on new arrival
+            if !isDancing && appState.pendingCount > 0 {
+                startDanceLoop()
+            }
+        }
+    }
+
+    private func startDanceLoop() {
+        isDancing = true
+        withAnimation(.easeIn(duration: 0.2)) { glowOpacity = 1 }
+        danceOnce()
+    }
+
+    private func stopDance() {
+        isDancing = false
+        withAnimation(.easeOut(duration: 0.3)) {
+            wiggleAngle = 0
+            bounceScale = 1.0
+            glowOpacity = 0
+        }
+    }
+
+    /// One wiggle cycle, then repeat if still pending.
+    private func danceOnce() {
+        guard isDancing else { return }
+
+        let steps: [(Double, CGFloat, Double)] = [
+            (-10, 1.12, 0.08),
+            (8, 1.08, 0.08),
+            (-6, 1.06, 0.08),
+            (4, 1.04, 0.08),
+            (-2, 1.02, 0.08),
+            (0, 1.0, 0.1),
+        ]
+
+        var delay: Double = 0
+        for (angle, scale, dur) in steps {
+            delay += dur
+            let d = delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + d) {
+                guard isDancing else { return }
+                withAnimation(.easeInOut(duration: dur)) {
+                    wiggleAngle = angle
+                    bounceScale = scale
+                }
+            }
+        }
+
+        // Pause, then repeat if still pending
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay + 1.5) {
+            guard isDancing, appState.pendingCount > 0 else {
+                stopDance()
+                return
+            }
+            danceOnce()
+        }
+    }
+}

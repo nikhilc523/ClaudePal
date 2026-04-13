@@ -1,0 +1,827 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 63;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		016A66F8E26694FD08984064 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058E12A8C624F3C1C283AF30 /* EventDetailView.swift */; };
+		0AF775E8B3A5A33DC636E1E8 /* ClaudePalKit in Frameworks */ = {isa = PBXBuildFile; productRef = B36CE5DCDCAD29A369460BB7 /* ClaudePalKit */; };
+		13E5861243F1C3DAC56D6243 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB312FD20878156E1EBDE3 /* AppDelegate.swift */; };
+		2A1AC46FD6D2407B1DED5801 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0FA7515C67D006055F7663 /* SettingsView.swift */; };
+		3C1C3A0FBDAA08D26AA3992F /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD42543268864B561B0EC1DE /* AppModel.swift */; };
+		48C2CA45CADC2E0F190585E5 /* ClaudePalWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A05E9EC0D4968D3E2AA3A /* ClaudePalWatchApp.swift */; };
+		5ADA62691A88932A3FCF054D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18CEF4D3728B14ED4279B9D /* DashboardView.swift */; };
+		6DF5D2F43E85E7EAA31FDADF /* ClaudePalWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 47ABCF7C6C497FB7703F54DF /* ClaudePalWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7084E9DA9C765CABA73A5DA5 /* ClaudePalWatchWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DAF264FC1C462D401AEB02E8 /* ClaudePalWatchWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8285ED366E7DD132783C1FB0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C66379C6A7994996EE20AD0A /* PrivacyInfo.xcprivacy */; };
+		83EFABDACFC89373B632AA2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F96DF9A750441050A9DABA43 /* Assets.xcassets */; };
+		86E603D8F359CCA3EFFA5A59 /* WatchConnectivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08B86FEC5FAEEBD9C27312F /* WatchConnectivityController.swift */; };
+		8B7EC00DDA4E7BE4E164C402 /* ClaudePalWatchWidgetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B4394AFF4D19B50DF185E /* ClaudePalWatchWidgetExtension.swift */; };
+		92EEBD9978E420F03B43E571 /* ClaudePalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40A7BFDD9520FAFC00C34AD /* ClaudePalApp.swift */; };
+		9E8CFC8D2F2CED51FE41BFA9 /* SharedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816126E9FD5DD58E52E15C00 /* SharedViews.swift */; };
+		A001DD0DE7D861E875DF608F /* WatchRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E54C0EEE7D323635D90B28 /* WatchRootView.swift */; };
+		A22B250607CA82C536668593 /* ClaudePalWidgetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012138BC184E7435F909710C /* ClaudePalWidgetExtension.swift */; };
+		AC6F863F288DB53E6CDB2E34 /* ApprovalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76142BA0F98BDEDE044483A7 /* ApprovalDetailView.swift */; };
+		AF8E02043652E0889831B17C /* LiveActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6886BC5C15F3EFD1C4498 /* LiveActivityController.swift */; };
+		B8B374654E316EC4E7686BEC /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C12F622EC983BFA4BC98C /* DesignSystem.swift */; };
+		C1627D58D11DF773B9FDA8AE /* AppPresentationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF6B733FB12114706189BB /* AppPresentationModels.swift */; };
+		C263A25129C7DF39D6EF709A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472F56117E8A0E4A371C6467 /* RootView.swift */; };
+		C495B85A09A57390E6A0C246 /* TerminalMascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5D9FC1229F76041ED0CC4 /* TerminalMascot.swift */; };
+		C9C3FBF955FBD003117EBEF8 /* ClaudePalWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B3D1551D25181362DA9C8EF9 /* ClaudePalWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CB7C3548E700C410B8D1E801 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6725C4F1839FC46A6B0B547D /* HistoryView.swift */; };
+		E983D2BB0F98206A5823B208 /* ClaudePalKit in Frameworks */ = {isa = PBXBuildFile; productRef = E46FE5422D6DDFB438CADA26 /* ClaudePalKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0A25799AFF0012AE93091D7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CD0A5DDAB0DF7B78BE80560 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CB0F6DF014A62264436D36B;
+			remoteInfo = ClaudePalWatchWidgetExtension;
+		};
+		0EF6BF70E2EED08C8CE6F0B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CD0A5DDAB0DF7B78BE80560 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AFE4F6364B6C65E37210410;
+			remoteInfo = ClaudePalWatch;
+		};
+		6D9CABAF6BA0B9BFCEFACF9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CD0A5DDAB0DF7B78BE80560 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 242FAB1EBAA0EAB11DD6E70D;
+			remoteInfo = ClaudePalWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		082E9941A45EE4D7BDE77FBB /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				6DF5D2F43E85E7EAA31FDADF /* ClaudePalWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80BE9D3396B81200C0218BAC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7084E9DA9C765CABA73A5DA5 /* ClaudePalWatchWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2F1AA5D0C58EB9376414D20 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C9C3FBF955FBD003117EBEF8 /* ClaudePalWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		012138BC184E7435F909710C /* ClaudePalWidgetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudePalWidgetExtension.swift; sourceTree = "<group>"; };
+		058E12A8C624F3C1C283AF30 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		1C0FA7515C67D006055F7663 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		351D321C16F906138AE10372 /* ClaudePal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClaudePal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		472F56117E8A0E4A371C6467 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		47ABCF7C6C497FB7703F54DF /* ClaudePalWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClaudePalWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		48CB312FD20878156E1EBDE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		521B4394AFF4D19B50DF185E /* ClaudePalWatchWidgetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudePalWatchWidgetExtension.swift; sourceTree = "<group>"; };
+		62FB78BBC538F75D223E55E7 /* ClaudePalKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ClaudePalKit; sourceTree = SOURCE_ROOT; };
+		6725C4F1839FC46A6B0B547D /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		70C5D9FC1229F76041ED0CC4 /* TerminalMascot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalMascot.swift; sourceTree = "<group>"; };
+		76142BA0F98BDEDE044483A7 /* ApprovalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalDetailView.swift; sourceTree = "<group>"; };
+		816126E9FD5DD58E52E15C00 /* SharedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViews.swift; sourceTree = "<group>"; };
+		8C7C12F622EC983BFA4BC98C /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		9F1A05E9EC0D4968D3E2AA3A /* ClaudePalWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudePalWatchApp.swift; sourceTree = "<group>"; };
+		AD42543268864B561B0EC1DE /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		B3D1551D25181362DA9C8EF9 /* ClaudePalWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClaudePalWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B40A7BFDD9520FAFC00C34AD /* ClaudePalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudePalApp.swift; sourceTree = "<group>"; };
+		C66379C6A7994996EE20AD0A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		C7E54C0EEE7D323635D90B28 /* WatchRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchRootView.swift; sourceTree = "<group>"; };
+		D18CEF4D3728B14ED4279B9D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		D6FF6B733FB12114706189BB /* AppPresentationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresentationModels.swift; sourceTree = "<group>"; };
+		DAF264FC1C462D401AEB02E8 /* ClaudePalWatchWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClaudePalWatchWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBD6886BC5C15F3EFD1C4498 /* LiveActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityController.swift; sourceTree = "<group>"; };
+		F08B86FEC5FAEEBD9C27312F /* WatchConnectivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityController.swift; sourceTree = "<group>"; };
+		F96DF9A750441050A9DABA43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0F1B7184708DA89AC579741 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E983D2BB0F98206A5823B208 /* ClaudePalKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7DD90209FD3DDBB1E05E06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AF775E8B3A5A33DC636E1E8 /* ClaudePalKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07A77E07FDB1B4591296AAD4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				351D321C16F906138AE10372 /* ClaudePal.app */,
+				47ABCF7C6C497FB7703F54DF /* ClaudePalWatch.app */,
+				DAF264FC1C462D401AEB02E8 /* ClaudePalWatchWidgetExtension.appex */,
+				B3D1551D25181362DA9C8EF9 /* ClaudePalWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33DBEBB0A8546EDA6A4F3E03 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				76142BA0F98BDEDE044483A7 /* ApprovalDetailView.swift */,
+				D18CEF4D3728B14ED4279B9D /* DashboardView.swift */,
+				8C7C12F622EC983BFA4BC98C /* DesignSystem.swift */,
+				058E12A8C624F3C1C283AF30 /* EventDetailView.swift */,
+				6725C4F1839FC46A6B0B547D /* HistoryView.swift */,
+				472F56117E8A0E4A371C6467 /* RootView.swift */,
+				1C0FA7515C67D006055F7663 /* SettingsView.swift */,
+				816126E9FD5DD58E52E15C00 /* SharedViews.swift */,
+				70C5D9FC1229F76041ED0CC4 /* TerminalMascot.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4B29120C9DF4F7389A4B32C6 /* ClaudePal */ = {
+			isa = PBXGroup;
+			children = (
+				F96DF9A750441050A9DABA43 /* Assets.xcassets */,
+				C66379C6A7994996EE20AD0A /* PrivacyInfo.xcprivacy */,
+			);
+			path = ClaudePal;
+			sourceTree = "<group>";
+		};
+		64300030BC6D325CF0F45E44 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				521B4394AFF4D19B50DF185E /* ClaudePalWatchWidgetExtension.swift */,
+			);
+			name = Sources;
+			path = ClaudePalWatchWidgetExtension/Sources;
+			sourceTree = "<group>";
+		};
+		6BBB5D376DD2E784A3237BCB /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9F1A05E9EC0D4968D3E2AA3A /* ClaudePalWatchApp.swift */,
+				F08B86FEC5FAEEBD9C27312F /* WatchConnectivityController.swift */,
+				C7E54C0EEE7D323635D90B28 /* WatchRootView.swift */,
+			);
+			name = Sources;
+			path = ClaudePalWatch/Sources;
+			sourceTree = "<group>";
+		};
+		7B6227093096639853D0BBC2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				012138BC184E7435F909710C /* ClaudePalWidgetExtension.swift */,
+			);
+			name = Sources;
+			path = ClaudePalWidgetExtension/Sources;
+			sourceTree = "<group>";
+		};
+		7BDE67BB7D2B7CE157BE938B /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				62FB78BBC538F75D223E55E7 /* ClaudePalKit */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		8DD12C63B7F4B7747184CA9F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				48CB312FD20878156E1EBDE3 /* AppDelegate.swift */,
+				AD42543268864B561B0EC1DE /* AppModel.swift */,
+				D6FF6B733FB12114706189BB /* AppPresentationModels.swift */,
+				B40A7BFDD9520FAFC00C34AD /* ClaudePalApp.swift */,
+				DBD6886BC5C15F3EFD1C4498 /* LiveActivityController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C2EC9B22FED13F23D3409B81 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8DD12C63B7F4B7747184CA9F /* App */,
+				33DBEBB0A8546EDA6A4F3E03 /* Views */,
+			);
+			name = Sources;
+			path = ClaudePal/Sources;
+			sourceTree = "<group>";
+		};
+		EC76A87A19E8AA39C19F2B06 = {
+			isa = PBXGroup;
+			children = (
+				4B29120C9DF4F7389A4B32C6 /* ClaudePal */,
+				7BDE67BB7D2B7CE157BE938B /* Packages */,
+				C2EC9B22FED13F23D3409B81 /* Sources */,
+				6BBB5D376DD2E784A3237BCB /* Sources */,
+				64300030BC6D325CF0F45E44 /* Sources */,
+				7B6227093096639853D0BBC2 /* Sources */,
+				07A77E07FDB1B4591296AAD4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		242FAB1EBAA0EAB11DD6E70D /* ClaudePalWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FD2088978E5994A3523E244 /* Build configuration list for PBXNativeTarget "ClaudePalWidgetExtension" */;
+			buildPhases = (
+				547A4ACE16DB50AE8A0F9B95 /* Sources */,
+				AA7DD90209FD3DDBB1E05E06 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClaudePalWidgetExtension;
+			packageProductDependencies = (
+				B36CE5DCDCAD29A369460BB7 /* ClaudePalKit */,
+			);
+			productName = ClaudePalWidgetExtension;
+			productReference = B3D1551D25181362DA9C8EF9 /* ClaudePalWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		2CB0F6DF014A62264436D36B /* ClaudePalWatchWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D6D445896950E30FF50A01C /* Build configuration list for PBXNativeTarget "ClaudePalWatchWidgetExtension" */;
+			buildPhases = (
+				84E5E827E7E84E53E255DB10 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClaudePalWatchWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = ClaudePalWatchWidgetExtension;
+			productReference = DAF264FC1C462D401AEB02E8 /* ClaudePalWatchWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		66E5AA3014206A1B6D2A9C76 /* ClaudePal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 649E95163825366610A21C7F /* Build configuration list for PBXNativeTarget "ClaudePal" */;
+			buildPhases = (
+				F9879C1E72BD13190105C800 /* Sources */,
+				AC4BE7139D9E39B00677AB0B /* Resources */,
+				A0F1B7184708DA89AC579741 /* Frameworks */,
+				C2F1AA5D0C58EB9376414D20 /* Embed Foundation Extensions */,
+				082E9941A45EE4D7BDE77FBB /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E24216A716629CBFAB9F1993 /* PBXTargetDependency */,
+				9F57E24AA98DFF5DD69537C2 /* PBXTargetDependency */,
+			);
+			name = ClaudePal;
+			packageProductDependencies = (
+				E46FE5422D6DDFB438CADA26 /* ClaudePalKit */,
+			);
+			productName = ClaudePal;
+			productReference = 351D321C16F906138AE10372 /* ClaudePal.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8AFE4F6364B6C65E37210410 /* ClaudePalWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F17AFFEBBCF47FA69961D09E /* Build configuration list for PBXNativeTarget "ClaudePalWatch" */;
+			buildPhases = (
+				CAE2721F1C1D7338BF663F9B /* Sources */,
+				80BE9D3396B81200C0218BAC /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3DAC94891CB557FCA52B29F /* PBXTargetDependency */,
+			);
+			name = ClaudePalWatch;
+			packageProductDependencies = (
+			);
+			productName = ClaudePalWatch;
+			productReference = 47ABCF7C6C497FB7703F54DF /* ClaudePalWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CD0A5DDAB0DF7B78BE80560 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					242FAB1EBAA0EAB11DD6E70D = {
+						ProvisioningStyle = Automatic;
+					};
+					2CB0F6DF014A62264436D36B = {
+						ProvisioningStyle = Automatic;
+					};
+					66E5AA3014206A1B6D2A9C76 = {
+						ProvisioningStyle = Automatic;
+					};
+					8AFE4F6364B6C65E37210410 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4C3BEEF923C59290193912F8 /* Build configuration list for PBXProject "ClaudePal" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = EC76A87A19E8AA39C19F2B06;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CDEE76B079100EA238B55417 /* XCLocalSwiftPackageReference "ClaudePalKit" */,
+			);
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66E5AA3014206A1B6D2A9C76 /* ClaudePal */,
+				8AFE4F6364B6C65E37210410 /* ClaudePalWatch */,
+				2CB0F6DF014A62264436D36B /* ClaudePalWatchWidgetExtension */,
+				242FAB1EBAA0EAB11DD6E70D /* ClaudePalWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC4BE7139D9E39B00677AB0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83EFABDACFC89373B632AA2F /* Assets.xcassets in Resources */,
+				8285ED366E7DD132783C1FB0 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		547A4ACE16DB50AE8A0F9B95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A22B250607CA82C536668593 /* ClaudePalWidgetExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84E5E827E7E84E53E255DB10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7EC00DDA4E7BE4E164C402 /* ClaudePalWatchWidgetExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAE2721F1C1D7338BF663F9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48C2CA45CADC2E0F190585E5 /* ClaudePalWatchApp.swift in Sources */,
+				86E603D8F359CCA3EFFA5A59 /* WatchConnectivityController.swift in Sources */,
+				A001DD0DE7D861E875DF608F /* WatchRootView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9879C1E72BD13190105C800 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13E5861243F1C3DAC56D6243 /* AppDelegate.swift in Sources */,
+				3C1C3A0FBDAA08D26AA3992F /* AppModel.swift in Sources */,
+				C1627D58D11DF773B9FDA8AE /* AppPresentationModels.swift in Sources */,
+				AC6F863F288DB53E6CDB2E34 /* ApprovalDetailView.swift in Sources */,
+				92EEBD9978E420F03B43E571 /* ClaudePalApp.swift in Sources */,
+				5ADA62691A88932A3FCF054D /* DashboardView.swift in Sources */,
+				B8B374654E316EC4E7686BEC /* DesignSystem.swift in Sources */,
+				016A66F8E26694FD08984064 /* EventDetailView.swift in Sources */,
+				CB7C3548E700C410B8D1E801 /* HistoryView.swift in Sources */,
+				AF8E02043652E0889831B17C /* LiveActivityController.swift in Sources */,
+				C263A25129C7DF39D6EF709A /* RootView.swift in Sources */,
+				2A1AC46FD6D2407B1DED5801 /* SettingsView.swift in Sources */,
+				9E8CFC8D2F2CED51FE41BFA9 /* SharedViews.swift in Sources */,
+				C495B85A09A57390E6A0C246 /* TerminalMascot.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F57E24AA98DFF5DD69537C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 242FAB1EBAA0EAB11DD6E70D /* ClaudePalWidgetExtension */;
+			targetProxy = 6D9CABAF6BA0B9BFCEFACF9E /* PBXContainerItemProxy */;
+		};
+		E24216A716629CBFAB9F1993 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8AFE4F6364B6C65E37210410 /* ClaudePalWatch */;
+			targetProxy = 0EF6BF70E2EED08C8CE6F0B6 /* PBXContainerItemProxy */;
+		};
+		F3DAC94891CB557FCA52B29F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CB0F6DF014A62264436D36B /* ClaudePalWatchWidgetExtension */;
+			targetProxy = 0A25799AFF0012AE93091D7A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		09F8CBE7C58E213424853555 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AP7RK323K3;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClaudePalWatch/Info.plist;
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikhilchowdary.ClaudePal.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		46853B859D5E0728EC8C04FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AP7RK323K3;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClaudePalWatch/Info.plist;
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikhilchowdary.ClaudePal.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		481C4973ADB328BEFD3F809B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AP7RK323K3;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClaudePal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikhilchowdary.ClaudePal;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		5AD0CF01C34FCF01848B11E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AP7RK323K3;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClaudePalWatchWidgetExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikhilchowdary.ClaudePal.watchkitapp.widget;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		5BC0B96228BD217BC10856E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7A99E2A7DE801B0CEE5684DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AP7RK323K3;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClaudePal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikhilchowdary.ClaudePal;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		84DDF041F225EE1ED9E10D5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AP7RK323K3;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClaudePalWidgetExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikhilchowdary.ClaudePal.WidgetExtension;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A3103DAA52A8C9838A01BDA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AP7RK323K3;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClaudePalWidgetExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikhilchowdary.ClaudePal.WidgetExtension;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D05230E019CDBFD9A4FBB53A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AP7RK323K3;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClaudePalWatchWidgetExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikhilchowdary.ClaudePal.watchkitapp.widget;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		FB28A0D4008836CF0C2604D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C3BEEF923C59290193912F8 /* Build configuration list for PBXProject "ClaudePal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB28A0D4008836CF0C2604D5 /* Debug */,
+				5BC0B96228BD217BC10856E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5D6D445896950E30FF50A01C /* Build configuration list for PBXNativeTarget "ClaudePalWatchWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AD0CF01C34FCF01848B11E0 /* Debug */,
+				D05230E019CDBFD9A4FBB53A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		649E95163825366610A21C7F /* Build configuration list for PBXNativeTarget "ClaudePal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A99E2A7DE801B0CEE5684DA /* Debug */,
+				481C4973ADB328BEFD3F809B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8FD2088978E5994A3523E244 /* Build configuration list for PBXNativeTarget "ClaudePalWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84DDF041F225EE1ED9E10D5A /* Debug */,
+				A3103DAA52A8C9838A01BDA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F17AFFEBBCF47FA69961D09E /* Build configuration list for PBXNativeTarget "ClaudePalWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46853B859D5E0728EC8C04FE /* Debug */,
+				09F8CBE7C58E213424853555 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		CDEE76B079100EA238B55417 /* XCLocalSwiftPackageReference "ClaudePalKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ClaudePalKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B36CE5DCDCAD29A369460BB7 /* ClaudePalKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ClaudePalKit;
+		};
+		E46FE5422D6DDFB438CADA26 /* ClaudePalKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ClaudePalKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1CD0A5DDAB0DF7B78BE80560 /* Project object */;
+}

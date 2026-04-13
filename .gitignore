@@ -1,0 +1,35 @@
+# Xcode
+build/
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+xcuserdata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# App bundles
+*.app
+*.ipa
+*.dmg
+
+# Node (bridge legacy)
+node_modules/
+npm-debug.log
+
+# Claude
+.claude/
+
+# Secrets
+*.p8
+*.p12
+*.mobileprovision
+*.provisionprofile

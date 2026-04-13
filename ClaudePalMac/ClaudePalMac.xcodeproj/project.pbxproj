@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		071151E3399A921879EE849B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E87AF00088D400BBAD573 /* AppState.swift */; };
+		0D52B248FB044F0978DC84F6 /* CloudKitPusher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED33C0FDC4A7B83D1C4FF5 /* CloudKitPusher.swift */; };
+		3AD3115727E899288D443DF8 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954CAF81CF458A30E9368507 /* MenuBarView.swift */; };
+		3AF283B8307DFD72B9D22719 /* NotchCompactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D723779B7DA65827034746 /* NotchCompactView.swift */; };
+		3DF3285174D44CC7CC65838C /* NotchPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107DCEFD49B61E589C58F8F /* NotchPanelController.swift */; };
+		5A35BCA863FE36192D7E2641 /* ApprovalCommandProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E008A62749EFDAC325A9AB9F /* ApprovalCommandProcessor.swift */; };
+		87066773F26CDDF01037EC77 /* NotchExpandedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D360AA13567ADB49F499F2A /* NotchExpandedView.swift */; };
+		96A30F6AA03E1129D591A5A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E0D53FFBC99C4EADE7950E /* Assets.xcassets */; };
+		9D37E649AE54BDE512DEDF61 /* ClaudePalMacCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9ED6263C687B836A65FB01 /* ClaudePalMacCore */; };
+		A077821ED42194D813D2F480 /* CloudKitSubscriptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43235D31A4E396F65A8E53 /* CloudKitSubscriptionHandler.swift */; };
+		A7DA50AAF058BEAC034CC886 /* TerminalMascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F333A1DB176B51FCC58F3B /* TerminalMascot.swift */; };
+		C40F11A2D70AAAC0781C3F04 /* ClaudePalMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4948BC6F0295F2F21178FF /* ClaudePalMacApp.swift */; };
+		DB75C22F262D663C2697AA7C /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C13B30923E005B3E0F7CB2 /* CloudKitManager.swift */; };
+		DF78F4770EB2E02856B5B87B /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8022E89F11D5F6B54A3B2 /* DesignSystem.swift */; };
+		E06081D9FEB70236F0FAF829 /* CloudKitRecordTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED59CE42F64AF57F297B87C /* CloudKitRecordTypes.swift */; };
+		F71A122CDBED104702D3AA14 /* NotchPanelRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0639FA65B8B61A063AB59284 /* NotchPanelRootView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0639FA65B8B61A063AB59284 /* NotchPanelRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchPanelRootView.swift; sourceTree = "<group>"; };
+		0E43235D31A4E396F65A8E53 /* CloudKitSubscriptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitSubscriptionHandler.swift; sourceTree = "<group>"; };
+		10F333A1DB176B51FCC58F3B /* TerminalMascot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalMascot.swift; sourceTree = "<group>"; };
+		5D360AA13567ADB49F499F2A /* NotchExpandedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchExpandedView.swift; sourceTree = "<group>"; };
+		7107DCEFD49B61E589C58F8F /* NotchPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchPanelController.swift; sourceTree = "<group>"; };
+		7D4948BC6F0295F2F21178FF /* ClaudePalMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudePalMacApp.swift; sourceTree = "<group>"; };
+		8732C54DD13EE37B1D4D1F68 /* ClaudePalMac */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ClaudePalMac; path = .; sourceTree = SOURCE_ROOT; };
+		8CC8022E89F11D5F6B54A3B2 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		954CAF81CF458A30E9368507 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		96ED33C0FDC4A7B83D1C4FF5 /* CloudKitPusher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPusher.swift; sourceTree = "<group>"; };
+		CE8E87AF00088D400BBAD573 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		E008A62749EFDAC325A9AB9F /* ApprovalCommandProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalCommandProcessor.swift; sourceTree = "<group>"; };
+		E7E0D53FFBC99C4EADE7950E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EE4FDF425D3C48ED4FCC33E8 /* ClaudePalMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClaudePalMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2C13B30923E005B3E0F7CB2 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		F7D723779B7DA65827034746 /* NotchCompactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchCompactView.swift; sourceTree = "<group>"; };
+		FED59CE42F64AF57F297B87C /* CloudKitRecordTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitRecordTypes.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F1906AE69E7B299F8CDD6B4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D37E649AE54BDE512DEDF61 /* ClaudePalMacCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10D26B9868568A171FBAFF3F /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				E008A62749EFDAC325A9AB9F /* ApprovalCommandProcessor.swift */,
+				F2C13B30923E005B3E0F7CB2 /* CloudKitManager.swift */,
+				96ED33C0FDC4A7B83D1C4FF5 /* CloudKitPusher.swift */,
+				FED59CE42F64AF57F297B87C /* CloudKitRecordTypes.swift */,
+				0E43235D31A4E396F65A8E53 /* CloudKitSubscriptionHandler.swift */,
+			);
+			path = CloudKit;
+			sourceTree = "<group>";
+		};
+		735C1678C6C6AC0A304B0357 /* ClaudePalMac */ = {
+			isa = PBXGroup;
+			children = (
+				CE8E87AF00088D400BBAD573 /* AppState.swift */,
+				E7E0D53FFBC99C4EADE7950E /* Assets.xcassets */,
+				7D4948BC6F0295F2F21178FF /* ClaudePalMacApp.swift */,
+				8CC8022E89F11D5F6B54A3B2 /* DesignSystem.swift */,
+				954CAF81CF458A30E9368507 /* MenuBarView.swift */,
+				F7D723779B7DA65827034746 /* NotchCompactView.swift */,
+				5D360AA13567ADB49F499F2A /* NotchExpandedView.swift */,
+				7107DCEFD49B61E589C58F8F /* NotchPanelController.swift */,
+				0639FA65B8B61A063AB59284 /* NotchPanelRootView.swift */,
+				10F333A1DB176B51FCC58F3B /* TerminalMascot.swift */,
+				10D26B9868568A171FBAFF3F /* CloudKit */,
+			);
+			path = ClaudePalMac;
+			sourceTree = "<group>";
+		};
+		8254EE1776CBA5C0DB115531 = {
+			isa = PBXGroup;
+			children = (
+				735C1678C6C6AC0A304B0357 /* ClaudePalMac */,
+				B97AB0DA85B63A86AF646226 /* Packages */,
+				A4D5272367AF99442F4A902A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A4D5272367AF99442F4A902A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE4FDF425D3C48ED4FCC33E8 /* ClaudePalMac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B97AB0DA85B63A86AF646226 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				8732C54DD13EE37B1D4D1F68 /* ClaudePalMac */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C0F2404BFE6B7ADDA05666D9 /* ClaudePalMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5558C6120FABE037CB7E7B83 /* Build configuration list for PBXNativeTarget "ClaudePalMac" */;
+			buildPhases = (
+				56C793D142D45DC0C7930EBE /* Sources */,
+				25197CFCEB0F70E0240DEEFE /* Resources */,
+				F1906AE69E7B299F8CDD6B4D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClaudePalMac;
+			packageProductDependencies = (
+				3D9ED6263C687B836A65FB01 /* ClaudePalMacCore */,
+			);
+			productName = ClaudePalMac;
+			productReference = EE4FDF425D3C48ED4FCC33E8 /* ClaudePalMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4CDD8B423FC0CE51DE84C41E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					C0F2404BFE6B7ADDA05666D9 = {
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = D077C8128519588D902EDBA0 /* Build configuration list for PBXProject "ClaudePalMac" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 8254EE1776CBA5C0DB115531;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B48B407F332CE0072E4A48A2 /* XCLocalSwiftPackageReference "." */,
+			);
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C0F2404BFE6B7ADDA05666D9 /* ClaudePalMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		25197CFCEB0F70E0240DEEFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96A30F6AA03E1129D591A5A3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		56C793D142D45DC0C7930EBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				071151E3399A921879EE849B /* AppState.swift in Sources */,
+				5A35BCA863FE36192D7E2641 /* ApprovalCommandProcessor.swift in Sources */,
+				C40F11A2D70AAAC0781C3F04 /* ClaudePalMacApp.swift in Sources */,
+				DB75C22F262D663C2697AA7C /* CloudKitManager.swift in Sources */,
+				0D52B248FB044F0978DC84F6 /* CloudKitPusher.swift in Sources */,
+				E06081D9FEB70236F0FAF829 /* CloudKitRecordTypes.swift in Sources */,
+				A077821ED42194D813D2F480 /* CloudKitSubscriptionHandler.swift in Sources */,
+				DF78F4770EB2E02856B5B87B /* DesignSystem.swift in Sources */,
+				3AD3115727E899288D443DF8 /* MenuBarView.swift in Sources */,
+				3AF283B8307DFD72B9D22719 /* NotchCompactView.swift in Sources */,
+				87066773F26CDDF01037EC77 /* NotchExpandedView.swift in Sources */,
+				3DF3285174D44CC7CC65838C /* NotchPanelController.swift in Sources */,
+				F71A122CDBED104702D3AA14 /* NotchPanelRootView.swift in Sources */,
+				A7DA50AAF058BEAC034CC886 /* TerminalMascot.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1B0F75E072A8165746B8B69C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ClaudePalMac/ClaudePalMac.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = ClaudePalMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LS_UI_ELEMENT = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.claudepal.mac;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.10;
+			};
+			name = Debug;
+		};
+		42F3984767E9AD89012576AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		65A9307FFE06C631AB7B2613 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ClaudePalMac/ClaudePalMac.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = ClaudePalMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LS_UI_ELEMENT = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.claudepal.mac;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.10;
+			};
+			name = Release;
+		};
+		890D531731FFFB2C7CB64038 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5558C6120FABE037CB7E7B83 /* Build configuration list for PBXNativeTarget "ClaudePalMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B0F75E072A8165746B8B69C /* Debug */,
+				65A9307FFE06C631AB7B2613 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D077C8128519588D902EDBA0 /* Build configuration list for PBXProject "ClaudePalMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42F3984767E9AD89012576AD /* Debug */,
+				890D531731FFFB2C7CB64038 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		B48B407F332CE0072E4A48A2 /* XCLocalSwiftPackageReference "." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = .;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3D9ED6263C687B836A65FB01 /* ClaudePalMacCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ClaudePalMacCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4CDD8B423FC0CE51DE84C41E /* Project object */;
+}

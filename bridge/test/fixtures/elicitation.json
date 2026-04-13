@@ -1,0 +1,21 @@
+{
+  "session_id": "session-elicitation-1",
+  "cwd": "/Users/nikhilchowdary/ClaudePal",
+  "permission_mode": "default",
+  "hook_event_name": "Elicitation",
+  "mcp_server_name": "github",
+  "elicitation_id": "elicit-1",
+  "mode": "form",
+  "message": "GitHub MCP needs the repository owner.",
+  "requested_schema": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "owner"
+    ]
+  }
+}

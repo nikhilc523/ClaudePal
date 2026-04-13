@@ -1,0 +1,215 @@
+import SwiftUI
+import ClaudePalMacCore
+import ServiceManagement
+import UserNotifications
+
+/// Central app state that owns the database, hook server, and hook config.
+/// Published properties drive the SwiftUI menu bar UI.
+@MainActor
+final class AppState: ObservableObject {
+    let db: AppDatabase
+    let processor: HookProcessor
+    let server: HookServer
+    let hookConfig: ClaudeHookConfig
+    var cloudKitManager: CloudKitManager?
+
+    @Published var sessions: [Session] = []
+    @Published var pendingDecisions: [PendingDecision] = []
+    @Published var serverRunning = false
+    @Published var hooksInstalled = false
+    @Published var launchOnLogin = false
+
+    /// Incremented each time new pending decisions arrive — drives mascot dance.
+    @Published var danceTrigger: Int = 0
+
+    var notchPanel: NotchPanelController?
+    private var previousPendingCount = 0
+
+    var pendingCount: Int { pendingDecisions.count }
+
+    var statusIcon: String {
+        if !serverRunning { return "exclamationmark.circle" }
+        if pendingCount > 0 { return "bell.badge.fill" }
+        if sessions.contains(where: { $0.status == .active }) { return "bolt.fill" }
+        return "cloud.fill"
+    }
+
+    init() {
+        let appSupport = FileManager.default.urls(
+            for: .applicationSupportDirectory, in: .userDomainMask
+        ).first!.appendingPathComponent("ClaudePal")
+
+        try? FileManager.default.createDirectory(at: appSupport, withIntermediateDirectories: true)
+
+        let dbPath = appSupport.appendingPathComponent("claudepal.db").path
+        let database = try! AppDatabase(path: dbPath)
+
+        // HookProcessor starts without a pusher.
+        // CloudKit pusher is wired in asynchronously once iCloud is confirmed available.
+        let proc = HookProcessor(db: database)
+
+        self.db = database
+        self.processor = proc
+        self.server = HookServer(processor: proc)
+        self.hookConfig = ClaudeHookConfig()
+
+        // Check initial state
+        self.hooksInstalled = (try? hookConfig.isInstalled()) ?? false
+        self.launchOnLogin = SMAppService.mainApp.status == .enabled
+
+        // Start server, polling, and notch panel
+        // CloudKit sync starts automatically once developer account entitlements are added
+        Task {
+            await startServer()
+            // await startCloudKit() // Enable when CloudKit entitlements are configured
+            startPolling()
+            requestNotificationPermission()
+            self.notchPanel = NotchPanelController(appState: self)
+        }
+    }
+
+    // MARK: - Server
+
+    func startServer() async {
+        do {
+            try await server.start()
+            serverRunning = true
+        } catch {
+            serverRunning = false
+        }
+    }
+
+    // MARK: - CloudKit (lazy init — only if iCloud is available)
+
+    func startCloudKit() async {
+        let manager = await CloudKitManager.createIfAvailable(
+            db: db, hookProcessor: processor
+        )
+        if let manager {
+            self.cloudKitManager = manager
+            await manager.start()
+        }
+    }
+
+    // MARK: - Hook Installation
+
+    func installHooks() {
+        do {
+            try hookConfig.install()
+            hooksInstalled = true
+        } catch {
+            hooksInstalled = false
+        }
+    }
+
+    func uninstallHooks() {
+        do {
+            try hookConfig.uninstall()
+            hooksInstalled = false
+        } catch {
+            // keep current state
+        }
+    }
+
+    // MARK: - Launch on Login
+
+    func toggleLaunchOnLogin() {
+        do {
+            if launchOnLogin {
+                try SMAppService.mainApp.unregister()
+            } else {
+                try SMAppService.mainApp.register()
+            }
+            launchOnLogin = SMAppService.mainApp.status == .enabled
+        } catch {
+            // keep current state
+        }
+    }
+
+    // MARK: - Decisions
+
+    func approve(decision: PendingDecision) {
+        Task {
+            try? await processor.resolve(decisionId: decision.id, approved: true)
+            refresh()
+        }
+    }
+
+    func deny(decision: PendingDecision) {
+        Task {
+            try? await processor.resolve(decisionId: decision.id, approved: false, reason: "Denied from ClaudePal")
+            refresh()
+        }
+    }
+
+    // MARK: - Polling
+
+    /// Simple polling loop to refresh state from the database.
+    /// In the future this can be replaced with GRDB observation.
+    func startPolling() {
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                self?.refresh()
+            }
+        }
+    }
+
+    func refresh() {
+        sessions = (try? db.fetchAllSessions()) ?? []
+        // Expire stale decisions before fetching — prevents zombie accumulation
+        _ = try? db.expireStaleDecisions()
+        let newPending = (try? db.fetchPendingDecisions()) ?? []
+
+        // Detect new arrivals — only fires for real PermissionRequest hooks now
+        if newPending.count > previousPendingCount && previousPendingCount >= 0 {
+            let newOnes = newPending.filter { newD in
+                !pendingDecisions.contains(where: { $0.id == newD.id })
+            }
+            if !newOnes.isEmpty {
+                NSSound(named: "Ping")?.play()
+                sendDesktopNotification(for: newOnes)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                    self?.danceTrigger += 1
+                }
+            }
+        }
+
+        previousPendingCount = newPending.count
+        pendingDecisions = newPending
+    }
+
+    // MARK: - Desktop Notifications
+
+    func requestNotificationPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in }
+    }
+
+    private func sendDesktopNotification(for decisions: [PendingDecision]) {
+        let center = UNUserNotificationCenter.current()
+
+        for decision in decisions.prefix(3) {
+            let content = UNMutableNotificationContent()
+            content.title = decision.isDestructive ? "Destructive Action" : "Approval Needed"
+            content.subtitle = decision.toolName ?? "Unknown Tool"
+
+            if let input = decision.toolInput,
+               let data = input.data(using: .utf8),
+               let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+               let cmd = json["command"] as? String ?? json["file_path"] as? String {
+                content.body = cmd
+            } else {
+                content.body = String((decision.toolInput ?? "").prefix(80))
+            }
+
+            content.sound = .default
+            content.categoryIdentifier = "APPROVAL"
+
+            let request = UNNotificationRequest(
+                identifier: decision.id,
+                content: content,
+                trigger: nil // deliver immediately
+            )
+            center.add(request)
+        }
+    }
+}

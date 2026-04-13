@@ -1,0 +1,36 @@
+{
+  "name": "claudepal-bridge",
+  "version": "0.1.0",
+  "description": "Local bridge service for ClaudePal iPhone and Apple Watch approvals.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "files": [
+    "src",
+    "hooks",
+    "docs",
+    "README.md"
+  ],
+  "keywords": [
+    "claude",
+    "bridge",
+    "ios",
+    "watchos",
+    "notifications"
+  ],
+  "bin": {
+    "claudepal-bridge": "./src/cli/bridge.js"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/index.js",
+    "test": "node --disable-warning=ExperimentalWarning --test",
+    "mock:event": "node --disable-warning=ExperimentalWarning src/cli/mock-event.js",
+    "install:hooks": "node --disable-warning=ExperimentalWarning src/cli/bridge.js install",
+    "uninstall:hooks": "node --disable-warning=ExperimentalWarning src/cli/bridge.js uninstall",
+    "status": "node --disable-warning=ExperimentalWarning src/cli/bridge.js status",
+    "doctor": "node --disable-warning=ExperimentalWarning src/cli/bridge.js doctor",
+    "pack:check": "npm pack --dry-run"
+  }
+}

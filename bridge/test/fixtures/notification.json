@@ -1,0 +1,8 @@
+{
+  "session_id": "session-notification-1",
+  "cwd": "/Users/nikhilchowdary/ClaudePal",
+  "permission_mode": "default",
+  "hook_event_name": "Notification",
+  "notification_type": "permission_prompt",
+  "message": "Claude needs your approval to continue."
+}

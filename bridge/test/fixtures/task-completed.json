@@ -1,0 +1,9 @@
+{
+  "session_id": "session-task-1",
+  "cwd": "/Users/nikhilchowdary/ClaudePal",
+  "permission_mode": "default",
+  "hook_event_name": "TaskCompleted",
+  "task_id": "task-001",
+  "task_subject": "Implement bridge core",
+  "task_description": "Persist bridge state and expose HTTP endpoints"
+}
