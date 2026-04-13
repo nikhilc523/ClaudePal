@@ -8,10 +8,14 @@ struct NotchExpandedView: View {
     var onDeny: (PendingDecision) -> Void
     var onCollapse: () -> Void
 
+    @State private var showSoundSettings = false
+
     var body: some View {
         VStack(spacing: 0) {
             headerRow
+            modelInfoRow
             metricsRow
+            permissionModeRow
             divider
 
             ScrollView(.vertical, showsIndicators: false) {
@@ -52,12 +56,31 @@ struct NotchExpandedView: View {
 
             Spacer()
 
+            // Service status indicator
             HStack(spacing: 3) {
-                NotchPulsingDot(color: appState.serverRunning ? .cpApprove : .cpDeny,
-                                isAnimating: appState.serverRunning, dotSize: 4, pulseSize: 8)
-                Text(appState.serverRunning ? "Connected" : "Offline")
+                NotchPulsingDot(
+                    color: serviceStatusColor,
+                    isAnimating: appState.serviceStatus?.isOperational ?? true,
+                    dotSize: 4, pulseSize: 8
+                )
+                Text(serviceStatusText)
                     .font(.system(size: 8, weight: .medium))
                     .foregroundStyle(Color.cpTextTertiary)
+            }
+
+            // Sound settings gear
+            Button {
+                showSoundSettings.toggle()
+            } label: {
+                Image(systemName: "gearshape.fill")
+                    .font(.system(size: 8))
+                    .foregroundStyle(Color.cpTextTertiary)
+                    .frame(width: 14, height: 14)
+                    .background(Color.white.opacity(0.06), in: Circle())
+            }
+            .buttonStyle(.plain)
+            .popover(isPresented: $showSoundSettings, arrowEdge: .bottom) {
+                SoundSettingsView(appState: appState)
             }
 
             Button { onCollapse() } label: {
@@ -72,6 +95,66 @@ struct NotchExpandedView: View {
         .padding(.horizontal, 12)
         .padding(.top, 10)
         .padding(.bottom, 6)
+    }
+
+    // MARK: - Model Info
+
+    private var modelInfoRow: some View {
+        Group {
+            if let model = appState.currentModel {
+                HStack(spacing: 6) {
+                    // Model badge
+                    HStack(spacing: 3) {
+                        Image(systemName: "cpu")
+                            .font(.system(size: 8))
+                            .foregroundStyle(Color.cpAccent)
+                        Text(model.friendlyName)
+                            .font(.system(size: 9, weight: .semibold, design: .monospaced))
+                            .foregroundStyle(Color.cpTextPrimary)
+                    }
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 3)
+                    .background(Color.cpAccent.opacity(0.1), in: Capsule())
+
+                    // Thinking indicator
+                    if model.isThinking {
+                        HStack(spacing: 2) {
+                            Image(systemName: "brain")
+                                .font(.system(size: 7))
+                            Text("Thinking")
+                                .font(.system(size: 8, weight: .medium))
+                        }
+                        .foregroundStyle(Color.cpSecondary)
+                        .padding(.horizontal, 5)
+                        .padding(.vertical, 2)
+                        .background(Color.cpSecondary.opacity(0.1), in: Capsule())
+                    }
+
+                    // Effort level badge
+                    Text(appState.effortLevel.displayName)
+                        .font(.system(size: 8, weight: .medium))
+                        .foregroundStyle(Color.cpTextTertiary)
+                        .padding(.horizontal, 5)
+                        .padding(.vertical, 2)
+                        .background(Color.white.opacity(0.06), in: Capsule())
+
+                    Spacer()
+
+                    // Token usage
+                    if appState.sessionTokens.messageCount > 0 {
+                        HStack(spacing: 2) {
+                            Image(systemName: "arrow.up.arrow.down")
+                                .font(.system(size: 7))
+                            Text("\(LocalTokenTracker.formatTokenCount(appState.sessionTokens.totalInputTokens))↑ \(LocalTokenTracker.formatTokenCount(appState.sessionTokens.totalOutputTokens))↓")
+                                .font(.system(size: 8, weight: .medium, design: .monospaced))
+                        }
+                        .foregroundStyle(Color.cpTextTertiary)
+                    }
+                }
+                .padding(.horizontal, 10)
+                .padding(.bottom, 6)
+            }
+        }
     }
 
     // MARK: - Metrics
@@ -90,6 +173,62 @@ struct NotchExpandedView: View {
         }
         .padding(.horizontal, 10)
         .padding(.bottom, 6)
+    }
+
+    // MARK: - Permission Mode Toggle
+
+    private var permissionModeRow: some View {
+        HStack(spacing: 4) {
+            Image(systemName: "shield.fill")
+                .font(.system(size: 8))
+                .foregroundStyle(Color.cpTextTertiary)
+
+            ForEach(PermissionMode.allCases, id: \.self) { mode in
+                Button {
+                    appState.setPermissionMode(mode)
+                } label: {
+                    Text(mode.displayName)
+                        .font(.system(size: 8, weight: appState.permissionMode == mode ? .bold : .medium))
+                        .foregroundStyle(appState.permissionMode == mode ? .white : Color.cpTextSecondary)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 3)
+                        .background(
+                            appState.permissionMode == mode
+                                ? permissionModeColor(mode)
+                                : Color.white.opacity(0.04),
+                            in: Capsule()
+                        )
+                }
+                .buttonStyle(.plain)
+            }
+
+            Spacer()
+        }
+        .padding(.horizontal, 10)
+        .padding(.bottom, 6)
+    }
+
+    private func permissionModeColor(_ mode: PermissionMode) -> Color {
+        switch mode {
+        case .normal: Color.cpSecondary
+        case .permissive: Color.cpApprove
+        case .restrictive: Color.cpDeny
+        }
+    }
+
+    // MARK: - Service Status Helpers
+
+    private var serviceStatusColor: Color {
+        guard let status = appState.serviceStatus else { return Color.cpTextTertiary }
+        if status.isOperational { return .cpApprove }
+        if status.isCritical { return .cpDeny }
+        return .cpWarning
+    }
+
+    private var serviceStatusText: String {
+        guard let status = appState.serviceStatus else { return "Checking..." }
+        if status.isOperational { return "Operational" }
+        return status.description
     }
 
     private var divider: some View {

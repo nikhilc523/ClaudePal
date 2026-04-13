@@ -84,6 +84,48 @@ struct MenuBarView: View {
 
     private var controlsSection: some View {
         VStack(alignment: .leading, spacing: 2) {
+            // Permission mode picker
+            HStack {
+                Label("Permissions", systemImage: "shield.fill")
+                    .font(.subheadline)
+                Spacer()
+                Picker("", selection: Binding(
+                    get: { appState.permissionMode },
+                    set: { appState.setPermissionMode($0) }
+                )) {
+                    ForEach(PermissionMode.allCases, id: \.self) { mode in
+                        Text(mode.displayName).tag(mode)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .frame(width: 180)
+                .controlSize(.small)
+            }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
+
+            // Sound mute toggle
+            Button {
+                var prefs = appState.soundPreferences
+                prefs.isMuted.toggle()
+                appState.updateSoundPreferences(prefs)
+            } label: {
+                HStack {
+                    Label(appState.soundPreferences.isMuted ? "Unmute Sounds" : "Mute Sounds",
+                          systemImage: appState.soundPreferences.isMuted ? "speaker.slash.fill" : "speaker.wave.2.fill")
+                    Spacer()
+                    if !appState.soundPreferences.isMuted {
+                        Image(systemName: "checkmark")
+                            .foregroundStyle(.blue)
+                    }
+                }
+            }
+            .buttonStyle(.plain)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
+
+            Divider()
+
             if appState.hooksInstalled {
                 Button {
                     appState.uninstallHooks()

@@ -1,7 +1,7 @@
 import SwiftUI
 import ClaudePalMacCore
 
-/// Compact notch icon: terminal mascot with pending badge.
+/// Compact notch pill: terminal mascot + model name + pending badge.
 /// Continuously dances while pending decisions exist — stops when all resolved.
 struct NotchCompactView: View {
     @ObservedObject var appState: AppState
@@ -12,36 +12,50 @@ struct NotchCompactView: View {
     @State private var isDancing = false
 
     var body: some View {
-        ZStack(alignment: .topTrailing) {
+        HStack(spacing: 4) {
+            // Mascot with glow
             ZStack {
-                // Pulsing glow ring while pending
                 if glowOpacity > 0 {
                     RoundedRectangle(cornerRadius: 8, style: .continuous)
                         .fill(Color.cpAccent.opacity(glowOpacity * 0.3))
                         .frame(width: 28, height: 28)
                         .blur(radius: 4)
                 }
-
-                TerminalMascot(size: 24, animated: true)
+                TerminalMascot(size: 20, animated: true)
             }
             .rotationEffect(.degrees(wiggleAngle))
             .scaleEffect(bounceScale)
 
+            // Model name (if detected)
+            if let model = appState.currentModel {
+                Text(model.friendlyName)
+                    .font(.system(size: 9, weight: .semibold, design: .monospaced))
+                    .foregroundStyle(Color.cpTextSecondary)
+                    .lineLimit(1)
+
+                if model.isThinking {
+                    Image(systemName: "brain")
+                        .font(.system(size: 7))
+                        .foregroundStyle(Color.cpAccent.opacity(0.7))
+                }
+            }
+
+            // Service status dot
+            if let status = appState.serviceStatus, !status.isOperational {
+                Circle()
+                    .fill(status.isCritical ? Color.cpDeny : Color.cpWarning)
+                    .frame(width: 5, height: 5)
+            }
+
             // Pending badge
             if appState.pendingCount > 0 {
-                ZStack {
-                    Circle()
-                        .fill(Color.cpDeny)
-                        .frame(width: 12, height: 12)
-                    Text("\(min(appState.pendingCount, 99))")
-                        .font(.system(size: 7, weight: .bold, design: .rounded))
-                        .foregroundStyle(.white)
-                }
-                .offset(x: 4, y: -2)
-                .transition(.scale.combined(with: .opacity))
+                Text("|\u{2009}\(appState.pendingCount)")
+                    .font(.system(size: 9, weight: .bold, design: .rounded))
+                    .foregroundStyle(Color.cpWarning)
             }
         }
-        .frame(width: 32, height: 28)
+        .padding(.horizontal, 6)
+        .frame(height: 28)
         .contentShape(Rectangle())
         .onChange(of: appState.pendingCount) { oldVal, newVal in
             if newVal > 0 && !isDancing {
@@ -51,7 +65,6 @@ struct NotchCompactView: View {
             }
         }
         .onChange(of: appState.danceTrigger) {
-            // Kick off dance immediately on new arrival
             if !isDancing && appState.pendingCount > 0 {
                 startDanceLoop()
             }
@@ -73,7 +86,6 @@ struct NotchCompactView: View {
         }
     }
 
-    /// One wiggle cycle, then repeat if still pending.
     private func danceOnce() {
         guard isDancing else { return }
 
@@ -99,7 +111,6 @@ struct NotchCompactView: View {
             }
         }
 
-        // Pause, then repeat if still pending
         DispatchQueue.main.asyncAfter(deadline: .now() + delay + 1.5) {
             guard isDancing, appState.pendingCount > 0 else {
                 stopDance()

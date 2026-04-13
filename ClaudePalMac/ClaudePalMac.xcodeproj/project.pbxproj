@@ -19,6 +19,7 @@
 		A077821ED42194D813D2F480 /* CloudKitSubscriptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E43235D31A4E396F65A8E53 /* CloudKitSubscriptionHandler.swift */; };
 		A7DA50AAF058BEAC034CC886 /* TerminalMascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F333A1DB176B51FCC58F3B /* TerminalMascot.swift */; };
 		C40F11A2D70AAAC0781C3F04 /* ClaudePalMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4948BC6F0295F2F21178FF /* ClaudePalMacApp.swift */; };
+		D5A214EB498FD6836E3EE7F1 /* SoundSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDBC9B8611C37DCC1A9A30C /* SoundSettingsView.swift */; };
 		DB75C22F262D663C2697AA7C /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C13B30923E005B3E0F7CB2 /* CloudKitManager.swift */; };
 		DF78F4770EB2E02856B5B87B /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8022E89F11D5F6B54A3B2 /* DesignSystem.swift */; };
 		E06081D9FEB70236F0FAF829 /* CloudKitRecordTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED59CE42F64AF57F297B87C /* CloudKitRecordTypes.swift */; };
@@ -36,6 +37,7 @@
 		8CC8022E89F11D5F6B54A3B2 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		954CAF81CF458A30E9368507 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		96ED33C0FDC4A7B83D1C4FF5 /* CloudKitPusher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPusher.swift; sourceTree = "<group>"; };
+		9BDBC9B8611C37DCC1A9A30C /* SoundSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSettingsView.swift; sourceTree = "<group>"; };
 		CE8E87AF00088D400BBAD573 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		E008A62749EFDAC325A9AB9F /* ApprovalCommandProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalCommandProcessor.swift; sourceTree = "<group>"; };
 		E7E0D53FFBC99C4EADE7950E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				5D360AA13567ADB49F499F2A /* NotchExpandedView.swift */,
 				7107DCEFD49B61E589C58F8F /* NotchPanelController.swift */,
 				0639FA65B8B61A063AB59284 /* NotchPanelRootView.swift */,
+				9BDBC9B8611C37DCC1A9A30C /* SoundSettingsView.swift */,
 				10F333A1DB176B51FCC58F3B /* TerminalMascot.swift */,
 				10D26B9868568A171FBAFF3F /* CloudKit */,
 			);
@@ -200,6 +203,7 @@
 				87066773F26CDDF01037EC77 /* NotchExpandedView.swift in Sources */,
 				3DF3285174D44CC7CC65838C /* NotchPanelController.swift in Sources */,
 				F71A122CDBED104702D3AA14 /* NotchPanelRootView.swift in Sources */,
+				D5A214EB498FD6836E3EE7F1 /* SoundSettingsView.swift in Sources */,
 				A7DA50AAF058BEAC034CC886 /* TerminalMascot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
