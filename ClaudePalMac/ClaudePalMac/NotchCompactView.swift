@@ -1,8 +1,7 @@
 import SwiftUI
 import ClaudePalMacCore
 
-/// Compact notch pill: terminal mascot + model name + pending badge.
-/// Continuously dances while pending decisions exist — stops when all resolved.
+/// Compact notch pill: just the terminal mascot with pending badge.
 struct NotchCompactView: View {
     @ObservedObject var appState: AppState
 
@@ -12,8 +11,7 @@ struct NotchCompactView: View {
     @State private var isDancing = false
 
     var body: some View {
-        HStack(spacing: 4) {
-            // Mascot with glow
+        ZStack(alignment: .topTrailing) {
             ZStack {
                 if glowOpacity > 0 {
                     RoundedRectangle(cornerRadius: 8, style: .continuous)
@@ -21,41 +19,25 @@ struct NotchCompactView: View {
                         .frame(width: 28, height: 28)
                         .blur(radius: 4)
                 }
-                TerminalMascot(size: 20, animated: true)
+                TerminalMascot(size: 24, animated: true)
             }
             .rotationEffect(.degrees(wiggleAngle))
             .scaleEffect(bounceScale)
 
-            // Model name (if detected)
-            if let model = appState.currentModel {
-                Text(model.friendlyName)
-                    .font(.system(size: 9, weight: .semibold, design: .monospaced))
-                    .foregroundStyle(Color.cpTextSecondary)
-                    .lineLimit(1)
-
-                if model.isThinking {
-                    Image(systemName: "brain")
-                        .font(.system(size: 7))
-                        .foregroundStyle(Color.cpAccent.opacity(0.7))
-                }
-            }
-
-            // Service status dot
-            if let status = appState.serviceStatus, !status.isOperational {
-                Circle()
-                    .fill(status.isCritical ? Color.cpDeny : Color.cpWarning)
-                    .frame(width: 5, height: 5)
-            }
-
-            // Pending badge
             if appState.pendingCount > 0 {
-                Text("|\u{2009}\(appState.pendingCount)")
-                    .font(.system(size: 9, weight: .bold, design: .rounded))
-                    .foregroundStyle(Color.cpWarning)
+                ZStack {
+                    Circle()
+                        .fill(Color.cpDeny)
+                        .frame(width: 12, height: 12)
+                    Text("\(min(appState.pendingCount, 99))")
+                        .font(.system(size: 7, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                }
+                .offset(x: 4, y: -2)
+                .transition(.scale.combined(with: .opacity))
             }
         }
-        .padding(.horizontal, 6)
-        .frame(height: 28)
+        .frame(width: 32, height: 28)
         .contentShape(Rectangle())
         .onChange(of: appState.pendingCount) { oldVal, newVal in
             if newVal > 0 && !isDancing {

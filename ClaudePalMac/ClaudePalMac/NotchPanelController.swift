@@ -57,9 +57,8 @@ final class NotchPanelController {
     private let expandedWidth: CGFloat = 330
     private let maxExpandedHeight: CGFloat = 400
 
-    /// Compact panel size — wider to fit mascot + model name + pending count.
-    /// Width/height are the NSPanel frame; SwiftUI content is inset.
-    private let compactSize = NSSize(width: 160, height: 28)
+    /// Fixed compact panel size — fits the 24px mascot + badge.
+    private let compactSize = NSSize(width: 36, height: 28)
 
     // MARK: - Init
 

@@ -15,7 +15,6 @@ struct NotchExpandedView: View {
             headerRow
             modelInfoRow
             metricsRow
-            permissionModeRow
             divider
 
             ScrollView(.vertical, showsIndicators: false) {

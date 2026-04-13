@@ -39,12 +39,15 @@ final class AppState: ObservableObject {
     @Published var permissionMode: PermissionMode = .normal
     let permissionManager: PermissionModeManager
 
-    // MARK: - Feature 4: Service Status + Tokens
+    // MARK: - Feature 4: Service Status + Tokens + Usage
 
     @Published var serviceStatus: ClaudeServiceStatus?
     @Published var sessionTokens: SessionTokens = .zero
+    @Published var usageData: ClaudeUsageData?
+    @Published var hasSessionCookie: Bool = false
     let statusChecker = ServiceStatusChecker()
     let tokenTracker = LocalTokenTracker()
+    let usageFetcher = ClaudeUsageFetcher()
 
     // MARK: - Internal
 
@@ -86,6 +89,7 @@ final class AppState: ObservableObject {
         self.launchOnLogin = SMAppService.mainApp.status == .enabled
         self.permissionMode = permissionManager.detectCurrentMode()
         self.effortLevel = EffortLevelReader.read()
+        self.hasSessionCookie = ClaudeCookieStore.hasKey
 
         // Wire session file watcher callbacks
         sessionFileWatcher.onModelInfoChanged = { [weak self] info in
@@ -105,6 +109,7 @@ final class AppState: ObservableObject {
             requestNotificationPermission()
             sessionFileWatcher.start()
             await startStatusPolling()
+            await startUsagePolling()
             self.notchPanel = NotchPanelController(appState: self)
         }
     }
@@ -207,7 +212,7 @@ final class AppState: ObservableObject {
         }
     }
 
-    // MARK: - Feature 4: Service Status
+    // MARK: - Feature 4: Service Status + Usage
 
     private func startStatusPolling() async {
         await statusChecker.startPolling(interval: 60) { [weak self] status in
@@ -215,6 +220,38 @@ final class AppState: ObservableObject {
                 self?.serviceStatus = status
             }
         }
+    }
+
+    private func startUsagePolling() async {
+        guard hasSessionCookie else { return }
+        await refreshUsage()
+        // Poll every 5 minutes
+        Timer.scheduledTimer(withTimeInterval: 300, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                await self?.refreshUsage()
+            }
+        }
+    }
+
+    func refreshUsage() async {
+        let data = await usageFetcher.fetchUsage()
+        usageData = data
+    }
+
+    func setSessionCookie(_ key: String) {
+        let trimmed = key.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return }
+        let saved = ClaudeCookieStore.save(sessionKey: trimmed)
+        hasSessionCookie = saved
+        if saved {
+            Task { await startUsagePolling() }
+        }
+    }
+
+    func clearSessionCookie() {
+        ClaudeCookieStore.delete()
+        hasSessionCookie = false
+        usageData = nil
     }
 
     // MARK: - Polling
@@ -270,7 +307,33 @@ final class AppState: ObservableObject {
     // MARK: - Desktop Notifications
 
     func requestNotificationPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in }
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in }
+
+        // Register actionable notification categories
+        let approveAction = UNNotificationAction(
+            identifier: "APPROVE_ACTION",
+            title: "✓ Approve",
+            options: []
+        )
+        let denyAction = UNNotificationAction(
+            identifier: "DENY_ACTION",
+            title: "✗ Deny",
+            options: [.destructive]
+        )
+        let approvalCategory = UNNotificationCategory(
+            identifier: "APPROVAL",
+            actions: [approveAction, denyAction],
+            intentIdentifiers: [],
+            options: []
+        )
+        let destructiveCategory = UNNotificationCategory(
+            identifier: "DESTRUCTIVE_APPROVAL",
+            actions: [approveAction, denyAction],
+            intentIdentifiers: [],
+            options: []
+        )
+        center.setNotificationCategories([approvalCategory, destructiveCategory])
     }
 
     private func sendDesktopNotification(for decisions: [PendingDecision]) {
@@ -278,20 +341,42 @@ final class AppState: ObservableObject {
 
         for decision in decisions.prefix(3) {
             let content = UNMutableNotificationContent()
-            content.title = decision.isDestructive ? "Destructive Action" : "Approval Needed"
-            content.subtitle = decision.toolName ?? "Unknown Tool"
+
+            let toolName = decision.toolName ?? "Unknown"
+
+            if decision.isDestructive {
+                content.title = "⚠️ Destructive Action — \(toolName)"
+                content.categoryIdentifier = "DESTRUCTIVE_APPROVAL"
+            } else {
+                content.title = "🔒 Permission Request — \(toolName)"
+                content.categoryIdentifier = "APPROVAL"
+            }
+
+            // Build a rich body
+            var bodyLines: [String] = []
 
             if let input = decision.toolInput,
                let data = input.data(using: .utf8),
-               let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-               let cmd = json["command"] as? String ?? json["file_path"] as? String {
-                content.body = cmd
-            } else {
-                content.body = String((decision.toolInput ?? "").prefix(80))
+               let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                if let cmd = json["command"] as? String {
+                    bodyLines.append("$ \(cmd)")
+                } else if let filePath = json["file_path"] as? String {
+                    bodyLines.append("📄 \(filePath)")
+                } else if let pattern = json["pattern"] as? String {
+                    bodyLines.append("🔍 \(pattern)")
+                }
             }
 
+            // Add session context
+            if let session = sessions.first(where: { $0.id == decision.sessionId }) {
+                bodyLines.append("📁 \(session.displayName)")
+            }
+
+            content.body = bodyLines.joined(separator: "\n")
             content.sound = .default
-            content.categoryIdentifier = "APPROVAL"
+
+            // Store decision ID for action handling
+            content.userInfo = ["decisionId": decision.id]
 
             let request = UNNotificationRequest(
                 identifier: decision.id,
